@@ -14,9 +14,11 @@ class App extends Component {
     };
   }
 
+  // snapshot da consulta
   onCollectionUpdate = (querySnapshot) => {
     const listagem_alunos = [];
     querySnapshot.forEach((doc) => {
+      //objetos de consulta
       const { ra_aluno, nome_aluno, serie_aluno } = doc.data();
       listagem_alunos.push({
         key: doc.id,
@@ -26,15 +28,16 @@ class App extends Component {
         serie_aluno,
       });
     });
+    // define o state da listagem
     this.setState({
       listagem_alunos
    });
   }
-
+  // realiza a montagem da listagem - DOM
   componentDidMount() {
     this.unsubscribe = this.ref.onSnapshot(this.onCollectionUpdate);
   }
-
+  // realiza o render
   render() {
     return (
       <div class="container">
@@ -50,7 +53,6 @@ class App extends Component {
           </div>
           <div>
             <h4 align="center">Listagem de alunos - por ordem alfabética</h4>
-
             <table class="table table-stripe">
               <thead>
                 <tr>

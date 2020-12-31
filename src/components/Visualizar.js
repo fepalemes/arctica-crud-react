@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 class Visualizar extends Component {
 
+  // constructor
   constructor(props) {
     super(props);
     this.state = {
@@ -12,8 +13,10 @@ class Visualizar extends Component {
     };
   }
 
+   // Definição da collection 
   componentDidMount() {
     const ref = firebase.firestore().collection('alunos_arctica').doc(this.props.match.params.id);
+    // get do objeto
     ref.get().then((doc) => {
       if (doc.exists) {
         this.setState({
@@ -22,20 +25,25 @@ class Visualizar extends Component {
           isLoading: false
         });
       } else {
+         // apresentação de erro caso não seja possível visualizar o cadastro
         console.log("Aluno não encontrado!");
       }
     });
   }
 
+  // ação de delete
   delete(id) {
     firebase.firestore().collection('alunos_arctica').doc(id).delete().then(() => {
+      // apresentação da mensagem caso o cadastro seja deletado com sucesso
       console.log("Cadastro do aluno deletado com sucesso!");
       this.props.history.push("/")
     }).catch((error) => {
+      // apresentação da mensagem de erro caso o cadastro não seja deletado com sucesso
       console.error("Erro ao deletar o aluno: ", error);
     });
   }
 
+  // realiza o render
   render() {
     return (
       <div class="container">

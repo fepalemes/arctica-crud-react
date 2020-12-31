@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 class Adicionar extends Component {
 
+  // constructor para definir a collection utilizada
   constructor() {
     super();
     this.ref = firebase.firestore().collection('alunos_arctica');
@@ -13,17 +14,18 @@ class Adicionar extends Component {
       serie_aluno: ''
     };
   }
+  // pega o state de mudança do campo do form
   onChange = (e) => {
     const state = this.state
     state[e.target.name] = e.target.value;
     this.setState(state);
   }
-
+  // ação do submit do form
   onSubmit = (e) => {
     e.preventDefault();
 
     const { ra_aluno, nome_aluno, serie_aluno } = this.state;
-
+    // declara o que foi digitado para poder adicionar o objeto correto
     this.ref.add({
       ra_aluno,
       nome_aluno,
@@ -36,11 +38,12 @@ class Adicionar extends Component {
       });
       this.props.history.push("/")
     })
+      // apresentação de erro caso não seja possível adicionar o cadastro
       .catch((error) => {
         console.error("Erro ao adicionar o cadastro do aluno: ", error);
       });
   }
-
+  // realiza o render
   render() {
     const { ra_aluno, nome_aluno, serie_aluno } = this.state;
     return (

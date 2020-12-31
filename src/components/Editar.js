@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 class Editar extends Component {
 
+  // constructor
   constructor(props) {
     super(props);
     this.state = {
@@ -14,8 +15,10 @@ class Editar extends Component {
     };
   }
 
+  // Definição da collection 
   componentDidMount() {
     const ref = firebase.firestore().collection('alunos_arctica').doc(this.props.match.params.id);
+    // get do objeto
     ref.get().then((doc) => {
       if (doc.exists) {
         const listagem = doc.data();
@@ -26,22 +29,23 @@ class Editar extends Component {
           serie_aluno: listagem.serie_aluno
         });
       } else {
+        // apresentação de erro caso não seja possível editar o cadastro
         console.log("Aluno não encontrado!");
       }
     });
   }
-
+  // pega o state de mudança do campo do form
   onChange = (e) => {
     const state = this.state
     state[e.target.name] = e.target.value;
     this.setState({ listagem: state });
   }
-
+  // ação do submit do form
   onSubmit = (e) => {
     e.preventDefault();
 
     const { ra_aluno, nome_aluno, serie_aluno } = this.state;
-
+    // declara o que foi digitado para poder editar o objeto retornado do get
     const updateRef = firebase.firestore().collection('alunos_arctica').doc(this.state.key);
     updateRef.set({
       ra_aluno,
@@ -56,11 +60,12 @@ class Editar extends Component {
       });
       this.props.history.push("/visualizar/" + this.props.match.params.id)
     })
+      // apresentação de erro caso não seja possível editar o cadastro
       .catch((error) => {
         console.error("Erro ao editar o cadastro do aluno: ", error);
       });
   }
-
+  // realiza o render
   render() {
     return (
       <div class="container">

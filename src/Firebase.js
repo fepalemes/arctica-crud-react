@@ -3,6 +3,7 @@ import firestore from 'firebase/firestore'
 
 const settings = {timestampsInSnapshots: true};
 
+// Informações do projeto obtida através do console do Google Firebase
 const config = {
     apiKey: "YOUR_APIKEY",
     authDomain: "YOUR_AUTHDOMAIN",

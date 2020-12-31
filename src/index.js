@@ -8,6 +8,7 @@ import Editar from './components/Editar';
 import Adicionar from './components/Adicionar';
 import Visualizar from './components/Visualizar';
 
+// rotas DOM 
 ReactDOM.render(
   <Router>
       <div>
