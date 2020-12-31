@@ -1,0 +1,15 @@
+{
+  "short_name": "CRUD - Arctica",
+  "name": "CRUD alunos - Arctica",
+  "icons": [
+    {
+      "src": "logo.png",
+      "type": "image/png",
+      "sizes": "54x54"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
