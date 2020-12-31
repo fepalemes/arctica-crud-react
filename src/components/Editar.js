@@ -34,7 +34,7 @@ class Editar extends Component {
   onChange = (e) => {
     const state = this.state
     state[e.target.name] = e.target.value;
-    this.setState({listagem:state});
+    this.setState({ listagem: state });
   }
 
   onSubmit = (e) => {
@@ -54,11 +54,11 @@ class Editar extends Component {
         nome_aluno: '',
         serie_aluno: ''
       });
-      this.props.history.push("/visualizar/"+this.props.match.params.id)
+      this.props.history.push("/visualizar/" + this.props.match.params.id)
     })
-    .catch((error) => {
-      console.error("Erro ao editar o cadastro do aluno: ", error);
-    });
+      .catch((error) => {
+        console.error("Erro ao editar o cadastro do aluno: ", error);
+      });
   }
 
   render() {
@@ -70,7 +70,7 @@ class Editar extends Component {
               Editar aluno
             </h3>
           </div>
-          <div class="panel-body">      
+          <div class="panel-body">
             <form onSubmit={this.onSubmit}>
               <div class="form-group">
                 <label for="ra_aluno">RA do aluno</label>

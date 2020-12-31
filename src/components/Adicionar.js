@@ -36,9 +36,9 @@ class Adicionar extends Component {
       });
       this.props.history.push("/")
     })
-    .catch((error) => {
-      console.error("Erro ao adicionar o cadastro do aluno: ", error);
-    });
+      .catch((error) => {
+        console.error("Erro ao adicionar o cadastro do aluno: ", error);
+      });
   }
 
   render() {

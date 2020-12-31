@@ -47,8 +47,6 @@ class App extends Component {
           <div class="panel-body">
           <div class="row">
             <h4><Link to="/adicionar" class="btn btn-primary">Adicionar aluno</Link></h4>
-              &nbsp;
-            <h4><Link to="/pesquisar" class="btn btn-primary">Pesquisar aluno</Link></h4>
           </div>
           <div>
             <h4 align="center">Listagem de alunos - por ordem alfabética</h4>

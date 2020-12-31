@@ -7,7 +7,6 @@ import * as serviceWorker from './serviceWorker';
 import Editar from './components/Editar';
 import Adicionar from './components/Adicionar';
 import Visualizar from './components/Visualizar';
-import Pesquisar from './components/Pesquisar';
 
 ReactDOM.render(
   <Router>
@@ -16,7 +15,6 @@ ReactDOM.render(
         <Route path='/editar/:id' component={Editar} />
         <Route path='/adicionar' component={Adicionar} />
         <Route path='/visualizar/:id' component={Visualizar} />
-        <Route path='/pesquisar/' component={Pesquisar} />
       </div>
   </Router>,
   document.getElementById('root')

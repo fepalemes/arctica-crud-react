@@ -27,7 +27,7 @@ class Visualizar extends Component {
     });
   }
 
-  delete(id){
+  delete(id) {
     firebase.firestore().collection('alunos_arctica').doc(id).delete().then(() => {
       console.log("Cadastro do aluno deletado com sucesso!");
       this.props.history.push("/")
