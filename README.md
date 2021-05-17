@@ -1,5 +1,5 @@
-# CRUD alunos - Arctica
-CRUD developed in React for the Arctica company exam
+# Students - CRUD
+CRUD developed in React.
 
 To check the project deployed on web, go to:
 https://arctica.fepalemes.com.br/
